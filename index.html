@@ -3,48 +3,94 @@
 
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Blog Computação Visual</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <header>
-        <h1>Primeira Semana de Computação Visual!</h1>
+        <a href="index.html" class="logo">
+            Computação Visual
+        </a>
     </header>
 
     <main>
 
-        <h2>O que você achava que veria na disciplina?</h2>
+        <section class="intro">
+            <h1>Blog de Computação Visual</h1>
 
-        <p>
-            Eu Imaginei que seria a abstração visual de sistemas complexos,
-            então relacionado com front-end, ocultar a complexidade de um sistema completo,
-            para o usuario.
-        </p>
+            <p>
+                Anotações, aprendizados e experiências durante a disciplina.
+            </p>
+        </section>
 
-        <h2>O que você entendeu que estudaremos?</h2>
+        <section class="posts">
 
-        
-        <p>
-            Uma coisa que achei interessante é que a computação visual não parece
-            estar limitada apenas à criação de imagens. Existem diferentes áreas
-            trabalhando com elas de maneiras distintas, como gerar, modificar e
-            interpretar imagens.
-        </p>
+            <h2>Posts</h2>
 
-        <p>
-            A princípio, achei interessante perceber como <em>Computer Graphics</em>,
-            <em>Image Processing</em> e <em>Computer Vision</em> podem se relacionar.
-            Isso me fez perceber que a disciplina pode envolver muito mais do que
-            simplesmente criar imagens ou gráficos.
-        </p>
+            <a href="Posts/post1.html" class="post">
+                <span class="number">01</span>
 
+                <div>
+                    <h3>Primeira aula Computação Visual</h3>
+                </div>
+            </a>
+
+
+        </section>
 
     </main>
+
+    <footer>
+        <p>Computação Visual · 2026</p>
+    </footer>
 
 </body>
 
 </html>
+
+.post-page {
+    max-width: 750px;
+    margin: auto;
+}
+
+.post-page h1 {
+    font-size: 40px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.post-page h2 {
+    margin-top: 40px;
+    font-size: 24px;
+}
+
+.post-page p {
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.date {
+    color: #777;
+    font-size: 14px !important;
+}
+
+.back {
+    color: #1769d1;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.back:hover {
+    text-decoration: underline;
+}
+
+.post-page hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 30px 0;
+}
