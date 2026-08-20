@@ -13,17 +13,21 @@
 <body>
 
     <header>
-        <a href="index.html" class="logo">
-            Computação Visual
-        </a>
+        <div class="container">
+            <a href="index.html" class="logo">
+                Computação Visual
+            </a>
+        </div>
     </header>
 
-    <main>
+    <main class="container">
 
         <section class="intro">
+            <p class="label">BLOG DA DISCIPLINA</p>
+
             <h1>Blog de Computação Visual</h1>
 
-            <p>
+            <p class="description">
                 Anotações, aprendizados e experiências durante a disciplina.
             </p>
         </section>
@@ -33,64 +37,26 @@
             <h2>Posts</h2>
 
             <a href="Posts/post1.html" class="post">
+
                 <span class="number">01</span>
 
-                <div>
-                    <h3>Primeira aula Computação Visual</h3>
+                <div class="post-info">
+                    <h3>Primeira aula de Computação Visual</h3>
+                    <p>Primeiras impressões sobre a disciplina.</p>
                 </div>
-            </a>
 
+                <span class="arrow">→</span>
+
+            </a>
 
         </section>
 
     </main>
 
-    <footer>
+    <footer class="container">
         <p>Computação Visual · 2026</p>
     </footer>
 
 </body>
 
 </html>
-
-.post-page {
-    max-width: 750px;
-    margin: auto;
-}
-
-.post-page h1 {
-    font-size: 40px;
-    margin-top: 30px;
-    margin-bottom: 10px;
-}
-
-.post-page h2 {
-    margin-top: 40px;
-    font-size: 24px;
-}
-
-.post-page p {
-    font-size: 17px;
-    line-height: 1.7;
-}
-
-.date {
-    color: #777;
-    font-size: 14px !important;
-}
-
-.back {
-    color: #1769d1;
-    text-decoration: none;
-    font-size: 15px;
-}
-
-.back:hover {
-    text-decoration: underline;
-}
-
-.post-page hr {
-    border: none;
-    border-top: 1px solid #ddd;
-    margin: 30px 0;
-}
