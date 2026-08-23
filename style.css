@@ -221,6 +221,10 @@ main {
     color: #ffffff;
 }
 
+.post + .post {
+    margin-top: 16px;
+}
+
 /* Rodapé */
 
 footer {
