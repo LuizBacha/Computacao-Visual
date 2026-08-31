@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Como uma Imagem Vira Digital - Computação Visual</title>
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <a href="../index.html" class="logo">
+                Computação Visual
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <article class="post-page">
+
+            <a href="../index.html" class="back">
+                ← Voltar para posts
+            </a>
+
+            <div class="post-header">
+
+                <p class="label">POST 03</p>
+
+                <h1>Como uma Imagem Vira Digital</h1>
+
+                <p class="date">
+                    30 de agosto de 2026
+                </p>
+
+            </div>
+
+            <div class="post-content">
+
+                <h2>Da cena para o computador</h2>
+
+                <p>
+                    Ao estudar os fundamentos da imagem digital, uma ideia que
+                    ficou mais clara é que uma imagem não começa diretamente
+                    como um arquivo no computador. Antes disso, existe uma cena,
+                    uma fonte de luz e algum objeto refletindo ou absorvendo
+                    parte dessa luz.
+                </p>
+
+                <p>
+                    Para que essa informação chegue ao meio digital, sensores
+                    capturam a energia luminosa e transformam essa energia em
+                    dados. Câmeras, scanners e outros dispositivos fazem esse
+                    papel de converter algo físico em uma representação que o
+                    computador consegue armazenar e processar.
+                </p>
+
+                <h2>Formação da imagem</h2>
+
+                <p>
+                    Uma forma simples de entender a formação da imagem é pensar
+                    nela como uma função bidimensional. Cada ponto da imagem tem
+                    uma posição e um valor relacionado à intensidade luminosa
+                    captada naquele local.
+                </p>
+
+                <p>
+                    Essa intensidade depende de dois fatores importantes: a luz
+                    que chega na cena e a quantidade de luz refletida pelos
+                    objetos. Por isso, o mesmo objeto pode parecer diferente se
+                    estiver sob uma iluminação forte, fraca ou colorida.
+                </p>
+
+                <h2>Amostragem</h2>
+
+                <p>
+                    A <em>amostragem</em> é o processo que transforma uma imagem
+                    contínua em posições discretas. Em outras palavras, ela
+                    define em quais pontos da cena o computador vai guardar
+                    informação.
+                </p>
+
+                <p>
+                    Esse processo está ligado à resolução da imagem. Quanto mais
+                    pontos são capturados, maior tende a ser a quantidade de
+                    detalhes representados. Quando há poucos pontos, detalhes
+                    pequenos podem desaparecer ou ficar mal definidos.
+                </p>
+
+                <h2>Quantização</h2>
+
+                <p>
+                    A <em>quantização</em> trabalha com os valores de intensidade.
+                    Depois que os pontos da imagem são definidos, ainda é preciso
+                    representar numericamente a intensidade de cada um deles.
+                </p>
+
+                <p>
+                    Em uma imagem em tons de cinza, por exemplo, os valores podem
+                    ir do preto ao branco passando por vários níveis
+                    intermediários. Uma imagem de 8 bits possui 256 valores
+                    possíveis de intensidade, o que permite representar uma boa
+                    variação entre regiões claras e escuras.
+                </p>
+
+                <h2>Matriz de pixels</h2>
+
+                <p>
+                    Depois da amostragem e da quantização, a imagem pode ser
+                    vista como uma matriz. Essa matriz tem linhas e colunas, e
+                    cada elemento dela representa um <em>pixel</em>.
+                </p>
+
+                <p>
+                    Essa ideia ajuda a entender por que imagens digitais podem
+                    ser processadas por algoritmos. Se a imagem é uma matriz de
+                    valores, então é possível alterar, comparar, filtrar ou
+                    analisar esses valores para obter novos resultados.
+                </p>
+
+                <h2>Resolução espacial</h2>
+
+                <p>
+                    A resolução espacial indica o menor detalhe que pode ser
+                    percebido em uma imagem. Em impressões, é comum falar em
+                    <em>DPI</em>, que significa pontos por polegada. Em telas,
+                    aparece uma ideia parecida, chamada <em>PPI</em>, relacionada
+                    à densidade de pixels.
+                </p>
+
+                <p>
+                    Quanto maior a densidade de pontos, mais detalhes podem ser
+                    representados em uma mesma área. Porém, isso também aumenta
+                    a quantidade de informação que precisa ser armazenada e
+                    processada.
+                </p>
+
+                <h2>O que ficou mais importante?</h2>
+
+                <p>
+                    O ponto principal é perceber que uma imagem digital é uma
+                    representação organizada de uma cena real ou criada. Ela não
+                    guarda o mundo exatamente como ele é, mas uma versão
+                    discretizada dele, formada por coordenadas e valores.
+                </p>
+
+                <p>
+                    Entender sensores, amostragem, quantização e resolução ajuda
+                    a enxergar melhor o caminho entre a luz capturada e a imagem
+                    exibida na tela. Essa base também facilita o estudo de temas
+                    mais avançados, como processamento de imagens e visão
+                    computacional.
+                </p>
+
+            </div>
+
+        </article>
+
+    </main>
+
+    <footer class="container">
+        <p>Computação Visual · 2026</p>
+    </footer>
+
+</body>
+
+</html>
