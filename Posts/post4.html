@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Interpolação de Imagens - Computação Visual</title>
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <a href="../index.html" class="logo">
+                Computação Visual
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <article class="post-page">
+
+            <a href="../index.html" class="back">
+                ← Voltar para posts
+            </a>
+
+            <div class="post-header">
+
+                <p class="label">POST 04</p>
+
+                <h1>Interpolação de Imagens</h1>
+
+                <p class="date">
+                    17 de setembro de 2026
+                </p>
+
+            </div>
+
+            <div class="post-content">
+
+                <h2>Redimensionamento de imagens</h2>
+
+                <p>
+                    Redimensionar uma imagem significa mudar sua largura, sua
+                    altura ou as duas dimensões ao mesmo tempo. Isso acontece
+                    quando aumentamos uma imagem, reduzimos uma foto ou
+                    adaptamos um conteúdo visual para outro tamanho de tela.
+                </p>
+
+                <p>
+                    O problema é que os pixels da imagem original nem sempre
+                    encaixam perfeitamente no novo tamanho. Quando isso acontece,
+                    o computador precisa decidir quais valores serão usados nos
+                    novos pontos da imagem.
+                </p>
+
+                <h2>O que é interpolação?</h2>
+
+                <p>
+                    A <em>interpolação</em> é uma forma de estimar valores
+                    desconhecidos usando valores já conhecidos. Em imagens, ela
+                    é usada para calcular a cor ou a intensidade de pixels que
+                    precisam aparecer depois do redimensionamento.
+                </p>
+
+                <p>
+                    Em vez de simplesmente copiar um pixel qualquer, a
+                    interpolação tenta criar uma transição mais coerente entre
+                    os pixels vizinhos. Isso ajuda a evitar resultados muito
+                    quebrados ou com aparência artificial.
+                </p>
+
+                <h2>Interpolação linear</h2>
+
+                <p>
+                    A <em>interpolação linear</em> calcula um valor intermediário
+                    entre dois pontos. A ideia é simples: se existem dois valores
+                    conhecidos, é possível estimar um novo valor entre eles
+                    seguindo uma variação em linha reta.
+                </p>
+
+                <p>
+                    Em uma imagem, esse tipo de interpolação pode ser entendido
+                    como uma forma de suavizar a passagem entre dois pixels
+                    próximos. Ela é simples, rápida e útil quando o cálculo
+                    precisa considerar apenas uma direção.
+                </p>
+
+                <h2>Interpolação bilinear</h2>
+
+                <p>
+                    A <em>interpolação bilinear</em> amplia essa ideia para duas
+                    direções: horizontal e vertical. Em vez de olhar apenas para
+                    dois pontos, ela considera quatro pixels vizinhos ao redor
+                    da posição que precisa ser calculada.
+                </p>
+
+                <p>
+                    Primeiro, o cálculo faz uma interpolação em uma direção.
+                    Depois, usa esses resultados para interpolar na outra. Assim,
+                    o valor final do novo pixel leva em conta melhor a região ao
+                    redor dele.
+                </p>
+
+                <h2>Por que isso importa?</h2>
+
+                <p>
+                    A escolha do método de interpolação influencia diretamente a
+                    aparência da imagem redimensionada. Métodos mais simples
+                    podem ser mais rápidos, mas podem deixar a imagem com
+                    bordas mais marcadas ou perda de detalhe.
+                </p>
+
+                <p>
+                    A interpolação bilinear costuma gerar um resultado mais
+                    suave do que uma escolha muito simples de pixels. Ao mesmo
+                    tempo, ela ainda é relativamente fácil de entender e aplicar,
+                    por isso aparece como uma etapa importante no estudo de
+                    processamento de imagens.
+                </p>
+
+                <h2>O que ficou claro?</h2>
+
+                <p>
+                    Redimensionar uma imagem não é apenas aumentar ou diminuir
+                    seu tamanho visual. O computador precisa reconstruir a imagem
+                    em uma nova grade de pixels, e a interpolação é uma das formas
+                    de estimar esses novos valores.
+                </p>
+
+                <p>
+                    A interpolação linear trabalha com a ideia de valores
+                    intermediários entre dois pontos. Já a interpolação bilinear
+                    usa a mesma lógica em duas direções, considerando quatro
+                    vizinhos para produzir uma transição mais suave.
+                </p>
+
+            </div>
+
+        </article>
+
+    </main>
+
+    <footer class="container">
+        <p>Computação Visual · 2026</p>
+    </footer>
+
+</body>
+
+</html>
