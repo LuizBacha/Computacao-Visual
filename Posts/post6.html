@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Embeddings de Imagens - Computação Visual</title>
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <a href="../index.html" class="logo">
+                Computação Visual
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <article class="post-page">
+
+            <a href="../index.html" class="back">
+                ← Voltar para posts
+            </a>
+
+            <div class="post-header">
+
+                <p class="label">POST 06</p>
+
+                <h1>Embeddings de Imagens</h1>
+
+                <p class="date">
+                    15 de outubro de 2026
+                </p>
+
+            </div>
+
+            <div class="post-content">
+
+                <h2>Dos pixels ao significado</h2>
+
+                <p>
+                    Nos posts anteriores, a imagem digital apareceu como uma
+                    matriz de pixels, em que cada pixel guarda valores de
+                    intensidade ou de cor nos canais RGB. Essa representação é
+                    ótima para exibir e editar uma imagem, mas não diz muito
+                    sobre o que a imagem mostra.
+                </p>
+
+                <p>
+                    Duas fotos do mesmo cachorro, tiradas com iluminação
+                    diferente, podem ter pixels com valores muito distintos.
+                    Para o computador, comparando pixel a pixel, elas parecem
+                    imagens bem diferentes. É aí que entra a ideia de
+                    <em>embedding</em>.
+                </p>
+
+                <h2>O que é um embedding?</h2>
+
+                <p>
+                    Um <em>embedding</em> é uma representação de uma imagem
+                    como um vetor de números, geralmente com algumas centenas ou
+                    milhares de posições. Em vez de guardar a cor de cada pixel,
+                    esse vetor tenta resumir as características importantes do
+                    conteúdo da imagem.
+                </p>
+
+                <p>
+                    A ideia central é que imagens parecidas em conteúdo devem
+                    gerar vetores parecidos. Assim, as duas fotos do cachorro
+                    tendem a ficar próximas, mesmo que os pixels sejam
+                    diferentes, enquanto a foto de um carro fica mais distante.
+                </p>
+
+                <h2>O espaço de embeddings</h2>
+
+                <p>
+                    Cada vetor pode ser pensado como um ponto em um espaço com
+                    muitas dimensões. Esse espaço é chamado de
+                    <em>espaço de embeddings</em> ou espaço latente. Não dá para
+                    visualizar diretamente tantas dimensões, mas a intuição é a
+                    mesma de pontos em um plano: alguns ficam perto, outros
+                    longe.
+                </p>
+
+                <p>
+                    Nesse espaço, a distância entre os pontos passa a ter
+                    significado. Imagens de gatos tendem a formar um
+                    agrupamento, imagens de paisagens formam outro, e assim por
+                    diante. A organização surge a partir dos dados usados para
+                    treinar o modelo.
+                </p>
+
+                <h2>Como os embeddings são gerados</h2>
+
+                <p>
+                    Normalmente, os embeddings são produzidos por redes
+                    neurais, como as <em>redes convolucionais</em> ou os
+                    modelos baseados em transformers. A imagem entra como uma
+                    matriz de pixels e passa por várias camadas, que vão
+                    extraindo informações cada vez mais abstratas.
+                </p>
+
+                <p>
+                    As primeiras camadas costumam reagir a bordas, cores e
+                    texturas. As camadas seguintes combinam essas informações em
+                    formas e partes de objetos. Perto do final da rede, a saída
+                    de uma dessas camadas pode ser usada como o embedding da
+                    imagem.
+                </p>
+
+                <h2>Medindo semelhança</h2>
+
+                <p>
+                    Com as imagens transformadas em vetores, comparar duas
+                    imagens vira um problema de comparar dois vetores. Uma
+                    forma comum é a <em>distância euclidiana</em>, que mede o
+                    quão longe um ponto está do outro.
+                </p>
+
+                <p>
+                    Outra forma muito usada é a <em>similaridade do cosseno</em>,
+                    que olha para o ângulo entre os vetores. Quanto menor o
+                    ângulo, mais parecidas as imagens são consideradas. Isso
+                    permite responder perguntas como "quais imagens deste banco
+                    se parecem com esta?".
+                </p>
+
+                <h2>Onde isso aparece</h2>
+
+                <p>
+                    Embeddings estão por trás de várias aplicações do dia a
+                    dia. A busca por imagens semelhantes compara o embedding da
+                    imagem enviada com os embeddings de um banco de imagens. O
+                    reconhecimento facial compara o embedding de um rosto com
+                    os de rostos já cadastrados.
+                </p>
+
+                <p>
+                    Também existem modelos que colocam textos e imagens no
+                    mesmo espaço de embeddings, como o <em>CLIP</em>. Com isso,
+                    a frase "um cachorro na praia" pode ficar próxima de fotos
+                    que realmente mostram essa cena, o que permite buscar
+                    imagens a partir de uma descrição em texto.
+                </p>
+
+                <h2>Por que isso importa?</h2>
+
+                <p>
+                    Os embeddings mudam a forma de enxergar uma imagem no
+                    computador. Em vez de trabalhar apenas com valores de pixel,
+                    passa a ser possível trabalhar com uma representação que
+                    captura o conteúdo e permite comparar, agrupar e buscar
+                    imagens.
+                </p>
+
+                <p>
+                    Isso conecta os fundamentos vistos até aqui, como pixel,
+                    RGB e matriz de pixels, com aplicações mais avançadas de
+                    visão computacional e inteligência artificial.
+                </p>
+
+                <h2>O que ficou claro?</h2>
+
+                <p>
+                    Um embedding transforma uma imagem em um vetor de números
+                    que resume o seu conteúdo. Imagens parecidas geram vetores
+                    próximos, e essa proximidade pode ser medida por distâncias
+                    ou pela similaridade do cosseno.
+                </p>
+
+                <p>
+                    Por isso, os embeddings são uma ponte entre a imagem como
+                    dado bruto e a imagem como informação. Eles ajudam o
+                    computador a perceber semelhanças que não aparecem quando
+                    comparamos apenas os pixels.
+                </p>
+
+            </div>
+
+        </article>
+
+    </main>
+
+    <footer class="container">
+        <p>Computação Visual · 2026</p>
+    </footer>
+
+</body>
+
+</html>
