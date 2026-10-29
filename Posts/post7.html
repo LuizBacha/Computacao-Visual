@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pipeline Gráfica - Computação Visual</title>
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <a href="../index.html" class="logo">
+                Computação Visual
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <article class="post-page">
+
+            <a href="../index.html" class="back">
+                ← Voltar para posts
+            </a>
+
+            <div class="post-header">
+
+                <p class="label">POST 07</p>
+
+                <h1>Pipeline Gráfica</h1>
+
+                <p class="date">
+                    27 de outubro de 2026
+                </p>
+
+            </div>
+
+            <div class="post-content">
+
+                <h2>Da cena 3D à imagem na tela</h2>
+
+                <p>
+                    Até aqui, os posts trataram a imagem digital como uma matriz
+                    de pixels. Mas, em jogos, simuladores e programas de
+                    modelagem, essa matriz não vem de uma câmera real: ela é
+                    gerada pelo computador a partir de uma cena 3D. O caminho
+                    que transforma objetos tridimensionais em uma imagem
+                    bidimensional é chamado de <em>pipeline gráfica</em>, ou
+                    <em>graphics rendering pipeline</em>.
+                </p>
+
+                <p>
+                    Ela pode ser vista como a "engine" que produz imagens a
+                    partir de uma câmera virtual, objetos, fontes de luz e
+                    outros elementos da cena. É o núcleo dos gráficos em tempo
+                    real.
+                </p>
+
+                <h2>O que é uma pipeline?</h2>
+
+                <p>
+                    O termo vem do mundo real. Uma linha de montagem em uma
+                    fábrica, um oleoduto ou uma linha de metrô são formados por
+                    vários estágios, com um fluxo entre eles. Cada estágio faz
+                    uma parte do trabalho e entrega o resultado para o próximo.
+                </p>
+
+                <p>
+                    No metrô, por exemplo, o trem na estação Paraíso não pode
+                    seguir para a Vergueiro enquanto o trem da Vergueiro não
+                    avança para São Joaquim. Os estágios trabalham ao mesmo
+                    tempo, mas dependem uns dos outros.
+                </p>
+
+                <h2>O que compõe uma cena 3D</h2>
+
+                <p>
+                    Uma cena 3D é formada por geometria (polígonos, arestas e
+                    vértices), fontes de luz, materiais e texturas. A geometria
+                    costuma ser descrita por triângulos, e cada triângulo tem
+                    três vértices. Um vértice é uma coordenada (x, y, z) e pode
+                    guardar outras informações, como um vetor normal e uma cor.
+                </p>
+
+                <p>
+                    Para "fotografar" essa cena é preciso uma
+                    <em>câmera virtual</em>, definida por uma posição, um vetor
+                    de direção, um vetor <em>up</em>, um campo de visão
+                    (<em>field of view</em>) e os planos <em>near</em> e
+                    <em>far</em>. Só o que estiver dentro do volume entre esses
+                    planos, chamado de <em>view frustum</em>, aparece na imagem
+                    final.
+                </p>
+
+                <h2>Os quatro estágios</h2>
+
+                <p>
+                    De forma conceitual, a pipeline gráfica tem quatro
+                    estágios. A entrada é a cena 3D e a saída é a imagem.
+                </p>
+
+                <p>
+                    O <em>estágio de aplicação</em> roda na CPU e é controlado
+                    pelo programador. Nele acontecem a interação com o usuário,
+                    a detecção de colisão, as animações e as otimizações. No
+                    final, esse estágio envia as primitivas (vértices, arestas e
+                    triângulos) para a GPU.
+                </p>
+
+                <p>
+                    O <em>estágio de geometria</em> processa essas primitivas e
+                    calcula o que deve ser exibido, como deve ser exibido e onde
+                    cada coisa aparece na tela.
+                </p>
+
+                <p>
+                    O <em>estágio de rasterização</em> recebe os três vértices
+                    de um triângulo e encontra todos os pixels que ficam dentro
+                    dele. É aqui que a geometria vira, de fato, uma matriz de
+                    pixels.
+                </p>
+
+                <p>
+                    Por fim, o <em>estágio de processamento de pixel</em>
+                    executa um programa para cada pixel e decide a sua cor. Ele
+                    também verifica se o pixel está visível e pode misturar a
+                    cor nova com cores já calculadas.
+                </p>
+
+                <h2>Por dentro do estágio de geometria</h2>
+
+                <p>
+                    O estágio de geometria é ele mesmo uma pequena pipeline. Na
+                    <em>transformação de modelo</em>, cada objeto sai do seu
+                    espaço local e é posicionado no espaço do mundo com
+                    translação, rotação e escala. Na
+                    <em>transformação de visão</em>, tudo é reposicionado para
+                    que a câmera fique na origem, olhando para o eixo Z
+                    negativo, o que simplifica as etapas seguintes.
+                </p>
+
+                <p>
+                    Depois vem o <em>vertex shading</em>, que calcula o efeito
+                    das luzes e dos materiais em cada vértice. Em seguida, a
+                    <em>projeção</em> achata a cena: a ortográfica mantém os
+                    tamanhos, enquanto a perspectiva faz objetos distantes
+                    parecerem menores, como na nossa visão.
+                </p>
+
+                <p>
+                    Após a projeção, a cena cabe em um cubo unitário. No
+                    <em>clipping</em>, primitivas totalmente fora do cubo são
+                    descartadas e as que estão parcialmente fora são cortadas
+                    nos limites. Por último, o <em>mapeamento na tela</em>
+                    converte o cubo para as coordenadas da janela, guardando
+                    também a profundidade (<em>z-depth</em>) de cada ponto.
+                </p>
+
+                <h2>Rasterização e pixels</h2>
+
+                <p>
+                    Na rasterização, a <em>configuração de triângulo</em>
+                    prepara os dados de cada triângulo e a
+                    <em>varredura de triângulo</em> percorre os pixels cobertos
+                    por ele. Para cada pixel é gerado um <em>fragmento</em>,
+                    cujas propriedades, como cor e profundidade, são obtidas
+                    interpolando os valores dos três vértices.
+                </p>
+
+                <p>
+                    No <em>pixel shading</em>, cada fragmento recebe sua cor
+                    final. Uma das aplicações mais comuns é a texturização, em
+                    que uma imagem é "colada" sobre a superfície do objeto.
+                    Depois, no <em>merging</em>, essa cor é combinada com o
+                    <em>color buffer</em>, a matriz que guarda a cor de cada
+                    pixel da imagem.
+                </p>
+
+                <h2>O algoritmo Z-buffer</h2>
+
+                <p>
+                    Quando dois triângulos ocupam o mesmo pixel, é preciso
+                    decidir qual deles está na frente. O <em>Z-buffer</em>
+                    resolve isso guardando a profundidade de cada pixel. Ao
+                    desenhar um novo fragmento, sua profundidade é comparada
+                    com a que está no buffer: se for menor, ele está mais perto
+                    e substitui a cor e a profundidade; caso contrário, é
+                    ignorado.
+                </p>
+
+                <p>
+                    Com isso, a ordem em que os triângulos são desenhados deixa
+                    de importar. Além do Z-buffer, a pipeline usa outros
+                    buffers, como o canal alfa para opacidade e o
+                    <em>double buffer</em>, em que a imagem é desenhada fora da
+                    tela (<em>back buffer</em>) e só depois é mostrada, evitando
+                    que o usuário veja o quadro pela metade.
+                </p>
+
+                <h2>Velocidade e gargalo</h2>
+
+                <p>
+                    A velocidade de renderização costuma ser medida em
+                    <em>frames per second</em> (FPS), o número de imagens
+                    geradas por segundo. Como em uma linha de montagem, essa
+                    velocidade é definida pelo estágio mais lento, chamado de
+                    <em>bottleneck</em> ou gargalo.
+                </p>
+
+                <p>
+                    Por isso, não adianta otimizar uma parte da pipeline que
+                    não é o gargalo: o fluxo continua limitado por ele. O
+                    primeiro passo para ganhar desempenho é descobrir qual
+                    estágio está segurando os demais.
+                </p>
+
+                <h2>O que ficou claro?</h2>
+
+                <p>
+                    A pipeline gráfica é a sequência de estágios que transforma
+                    uma cena 3D em uma imagem 2D: aplicação, geometria,
+                    rasterização e processamento de pixel. Cada estágio recebe
+                    o resultado do anterior, e o mais lento define a velocidade
+                    de todo o processo.
+                </p>
+
+                <p>
+                    Ela conecta os conceitos vistos até aqui. A matriz de
+                    pixels, as cores RGB e a interpolação aparecem no final da
+                    pipeline, agora como resultado de um processo que começa
+                    com vértices, câmeras e luzes em um mundo tridimensional.
+                </p>
+
+            </div>
+
+        </article>
+
+    </main>
+
+    <footer class="container">
+        <p>Computação Visual · 2026</p>
+    </footer>
+
+</body>
+
+</html>
