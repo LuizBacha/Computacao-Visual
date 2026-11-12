@@ -311,6 +311,18 @@ footer p {
     line-height: 1.85;
 }
 
+.post-content ul {
+    margin: 0 0 21px;
+    padding-left: 24px;
+}
+
+.post-content li {
+    margin-bottom: 10px;
+    color: #465267;
+    font-size: 18px;
+    line-height: 1.85;
+}
+
 .post-content em {
     padding: 0 4px;
     border-radius: 4px;
@@ -371,7 +383,8 @@ footer p {
         font-size: 23px;
     }
 
-    .post-content p {
+    .post-content p,
+    .post-content li {
         font-size: 17px;
     }
 }

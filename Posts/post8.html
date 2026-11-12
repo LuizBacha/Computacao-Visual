@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reflexão Final - Computação Visual</title>
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <a href="../index.html" class="logo">
+                Computação Visual
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <article class="post-page">
+
+            <a href="../index.html" class="back">
+                ← Voltar para posts
+            </a>
+
+            <div class="post-header">
+
+                <p class="label">POST 08</p>
+
+                <h1>Reflexão Final</h1>
+
+                <p class="date">
+                    12 de novembro de 2026
+                </p>
+
+            </div>
+
+            <div class="post-content">
+
+                <h2>Voltando no primeiro post</h2>
+
+                <p>
+                    Reli o primeiro post antes de escrever esse. Lá eu falei que
+                    achava que a disciplina ia ser sobre front-end, sobre jeitos
+                    de mostrar informação de forma mais simples pro usuário.
+                    Errei bastante. Não tinha nada de tela bonita, era sobre o
+                    que acontece por baixo dela: como a imagem é guardada, como
+                    ela é gerada e como o computador tenta entender o que tem
+                    nela.
+                </p>
+
+                <p>
+                    No primeiro post eu também falei que não tinha uma visão
+                    completa de como Computer Graphics, Image Processing e
+                    Computer Vision se conectavam. Hoje acho que tenho uma ideia
+                    melhor.
+                </p>
+
+                <h2>O caminho dos posts</h2>
+
+                <p>
+                    Olhando a lista de posts, dá pra ver que eles foram meio que
+                    subindo de nível. Comecei no pixel e no RGB, depois fui pra
+                    como a imagem vira digital (amostragem, quantização), depois
+                    interpolação. Até aí era tudo "a imagem é uma matriz de
+                    números e a gente mexe nesses números".
+                </p>
+
+                <p>
+                    Os dois últimos mudaram isso pra mim. Embeddings foi o
+                    primeiro momento em que a imagem deixou de ser só pixel e
+                    virou significado, um vetor que diz o que tem na foto e não
+                    a cor de cada ponto. E a pipeline gráfica foi o caminho
+                    contrário: em vez de pegar uma imagem e analisar, é criar
+                    ela do zero a partir de triângulos, câmera e luz. No fim
+                    os mesmos conceitos do começo (matriz de pixels, RGB,
+                    interpolação) aparecem lá no final da pipeline. Foi legal
+                    perceber isso escrevendo o post 7, porque deu a sensação de
+                    que as coisas se fecharam.
+                </p>
+
+                <h2>O que ficou de verdade</h2>
+
+                <p>
+                    Sendo sincero, alguns detalhes eu provavelmente vou esquecer,
+                    tipo a ordem exata dos sub-estágios da geometria. Mas tem
+                    umas ideias que ficam:
+                </p>
+
+                <ul>
+                    <li>
+                        Imagem é número. Parece óbvio, mas depois que caiu a
+                        ficha eu passei a olhar diferente pra coisas como zoom
+                        de foto ficando pixelada ou filtro de app.
+                    </li>
+                    <li>
+                        Quase tudo é uma troca entre qualidade e custo:
+                        resolução, bits por pixel, método de interpolação,
+                        FPS. Não tem opção "melhor", tem a que serve pro caso.
+                    </li>
+                    <li>
+                        A ideia de gargalo da pipeline serve pra muita coisa fora
+                        de gráficos. Otimizar o que não é o gargalo não adianta
+                        nada, e isso eu vejo no trabalho também.
+                    </li>
+                    <li>
+                        Embeddings conectaram a disciplina com IA, que é o
+                        assunto que todo mundo tá falando. Entender que por trás
+                        de "buscar imagens parecidas" tem só distância entre
+                        vetores tirou um pouco da mágica, no bom sentido.
+                    </li>
+                </ul>
+
+                <h2>Sobre fazer o blog</h2>
+
+                <p>
+                    Escrever os posts ajudou mais do que eu esperava. Ler o
+                    material e achar que entendeu é uma coisa, ter que explicar
+                    com as próprias palavras é outra. Várias vezes eu travava no
+                    meio de um parágrafo porque percebia que não sabia explicar
+                    direito, e aí tinha que voltar no conteúdo.
+                </p>
+
+                <p>
+                    Também foi legal ver os blogs dos colegas. Cada um seguiu um
+                    caminho diferente, uns mais didáticos, outros mais pessoais,
+                    alguns com coisa interativa. Os meus ficaram mais no estilo
+                    resumo explicativo, e olhando agora talvez eu tivesse
+                    colocado mais exemplo prático, imagem e código. Fica de
+                    lição.
+                </p>
+
+                <h2>Fechando</h2>
+
+                <p>
+                    Saio da disciplina sem ser especialista em nada disso, mas
+                    com uma base que antes eu não tinha. Antes eu olhava uma
+                    imagem na tela e era só uma imagem. Agora eu sei que tem uma
+                    matriz, canais, uma câmera virtual ou um sensor, e muita
+                    decisão de engenharia no meio. Acho que esse era o ponto.
+                </p>
+
+            </div>
+
+        </article>
+
+    </main>
+
+    <footer class="container">
+        <p>Computação Visual · 2026</p>
+    </footer>
+
+</body>
+
+</html>
